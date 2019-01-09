@@ -24,15 +24,26 @@ def intervalInstances(interval, length):
     return (length - interval) - 1 #minus 1 for column headers
 
 def positiveReturns(retlist):
-    
+    return positiveInflationReturns(retlist, 1)
+
+def positiveInflationReturns(retlist, inflation):
     returns = 0
     for i in retlist:
-        if i > 1: returns += 1
+        if i > inflation: returns += 1
     return returns
-    
+
+def sortReturns(retlist):
+    retlist.sort()
+    return retlist
+
+def split_list(alist, wanted_parts=1):
+    length = len(alist)
+    return [ alist[i*length // wanted_parts: (i+1)*length // wanted_parts] 
+             for i in range(wanted_parts) ]
 
 csvfile = "VAS.csv"
 data = csvToList(csvfile)
-for i in range(1080):
-    print(str(i) + " day interval: ")
-    print(positiveReturns(intervalReturns(i, data))/intervalInstances(i, len(data)))
+data = sortReturns(intervalReturns(28, data))
+quart = split_list(data,12)
+for s in quart:
+    print(str(s[0]) + "and" + str(s[-1]))
