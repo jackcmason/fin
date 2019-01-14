@@ -24,7 +24,7 @@ def getLow(row):
     return row[4]
 
 def getClose(row):
-    return row[5]
+    return float(row[5])
 
 def getVolume(row):
     return row[6]

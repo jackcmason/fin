@@ -1,4 +1,5 @@
 import csv
+from csvtodata import *
 
 def csvToList(csvfile):
     with open(csvfile, 'r') as f:
@@ -13,7 +14,7 @@ def intervalReturns(days, data):
     returns = []
     while i + days < len(data):
         try:
-            ret = float(data[i+days][5])/float(data[i][5])
+            ret = getClose(data[i+days])/getClose(data[i])
             returns.append(ret)
         except:
             pass
@@ -43,7 +44,9 @@ def split_list(alist, wanted_parts=1):
 
 csvfile = "VAS.csv"
 data = csvToList(csvfile)
-data = sortReturns(intervalReturns(28, data))
+new = intervalReturns(28, data)
+print(new)
+data = sortReturns(new)
 quart = split_list(data,12)
 for s in quart:
     print(str(s[0]) + "and" + str(s[-1]))
