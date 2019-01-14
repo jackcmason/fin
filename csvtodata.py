@@ -15,25 +15,25 @@ def getDate(row):
     return row[1]
 
 def getOpen(row):
-    return row[2]
+    return float(row[2])
 
 def getHigh(row):
-    return row[3]
+    return float(row[3])
 
 def getLow(row):
-    return row[4]
+    return float(row[4])
 
 def getClose(row):
     return float(row[5])
 
 def getVolume(row):
-    return row[6]
+    return int(row[6])
 
 def getValue(row):
-    return row[7]
+    return float(row[7])
 
 def getTrades(row):
-    return row[8]
+    return int(row[8])
 
 def getDataList(data, index):
     collect = []
