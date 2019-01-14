@@ -21,6 +21,15 @@ def intervalReturns(days, data):
         i = i + 1
     return returns
 
+def openToLow(data):
+    i = 1
+    collect = []
+    while i < len(data):
+        collect.append(getOpen(data[i])-getLow(data[i]))
+        i = i + 1
+    return collect
+        
+
 def intervalInstances(interval, length):
     return (length - interval) - 1 #minus 1 for column headers
 
@@ -44,9 +53,8 @@ def split_list(alist, wanted_parts=1):
 
 csvfile = "VAS.csv"
 data = csvToList(csvfile)
-new = intervalReturns(28, data)
-print(new)
-data = sortReturns(new)
-quart = split_list(data,12)
-for s in quart:
-    print(str(s[0]) + "and" + str(s[-1]))
+low = openToLow(data)
+low.sort()
+split = split_list(low, 12)
+for i in split:
+    print(str(i[0])+" and "+str(i[-1]))
