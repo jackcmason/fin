@@ -1,5 +1,15 @@
 import csv
 
+CODE = 0
+DATE = 1
+OPEN = 2
+HIGH = 3
+LOW = 4
+CLOSE = 5
+VOLUME = 6
+VALUE = 7
+TRADES = 8
+
 def csvToList(csvfile):
     with open(csvfile, 'r') as f:
         collect = []
