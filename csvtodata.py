@@ -1,4 +1,5 @@
 import csv
+import datetime
 
 CODE = 0
 DATE = 1
@@ -22,7 +23,7 @@ def getCode(row):
     return row[CODE]
 
 def getDate(row):
-    return row[DATE]
+    return time.strptime(row[DATE], "%d/%m/%Y")
 
 def getOpen(row):
     return float(row[OPEN])
