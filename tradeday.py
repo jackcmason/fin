@@ -1,5 +1,5 @@
 class Tradeday:
-    def init(self, code, date, openprice, high, low, close, volume, value, trades):
+    def __init__(self, code, date, openprice, high, low, close, volume, value, trades):
         self.code = code
         self.date = date
         self.open = openprice
