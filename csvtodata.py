@@ -1,5 +1,5 @@
 import csv
-import datetime
+import time
 
 CODE = 0
 DATE = 1
@@ -15,6 +15,7 @@ def csvToList(csvfile):
     with open(csvfile, 'r') as f:
         collect = []
         reader = csv.reader(f)
+        next(reader)
         for row in reader:
             collect.append(row)
     return collect
