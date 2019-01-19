@@ -9,6 +9,6 @@ class Tradeday:
         self.volume = volume
         self.value = value
         self.trades = trades
-    def __str__():
+    def __str__(self):
         return "Code:{}\nDate:{}\nOpen:{}\nHigh:{}\nLow:{}\nClose:{}\nVolume:{}\nValue:{}\nTrades:{}".format(
             self.code, self.date, self.open, self.high, self.low, self.close, self.volume, self.value, self.trades)
